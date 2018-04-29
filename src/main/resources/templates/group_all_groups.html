@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container list-of-group" th:if="${!group_list.isEmpty()}">
+    <h2>List of groups <a class="add" th:href="@{/group/create}">+</a></h2>
+    <table class="table group_list">
+        <thead>
+        <tr>
+            <th style="width: 45%">Id</th>
+            <th style="width: 50%">Group name</th>
+            <th style="width: 5%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="group:${group_list}">
+            <td th:text="${group.getId_group()}"></td>
+            <td th:text="${group.getGroupname()}"></td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown">
+                        details
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item edit" th:href="@{'/group/' + ${group.getGroupname()}+'/edit'}">edit</a>
+                        <a class="dropdown-item groups" th:href="@{'/group/' + ${group.getGroupname()}+'/users'}">users</a>
+                        <a class="dropdown-item delete" th:href="@{'/group/' + ${group.getGroupname()}+'/delete'}">delete</a>
+                    </div>
+                </div>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="if_list_user_or_group_is_empty" th:if="${group_list.isEmpty()}"><h2> List of groups is empty. Click
+    <a class="add_if" th:href="@{/group/create}">+</a> for creating new group!</h2></div>
+<div th:include="footer"></div>

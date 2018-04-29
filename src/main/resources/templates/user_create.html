@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container create-user">
+    <h2>Create <user></user></h2>
+    <form th:action="@{/user/create}" th:object="${new_user}" method="post">
+        <div class="form-group">
+            <label for="Username">Username:</label>
+            <input type="text" class="form-control" id="Username" placeholder="Username" required
+                   th:field="*{username}"/>
+        </div>
+        <div class="form-group">
+            <label for="First_name">Firs name:</label>
+            <input type="text" class="form-control" id="First_name" placeholder="First name" th:field="*{first_name}"/>
+        </div>
+        <div class="form-group">
+            <label for="Last_name">Last name:</label>
+            <input type="text" class="form-control" id="Last_name" placeholder="Last name" th:field="*{last_name}"/>
+        </div>
+        <div class="form-group">
+            <label for="Date_of_birth">Date of birth:</label>
+            <input type="date" class="form-control" id="Date_of_birth" placeholder="1996-04-20"
+                   th:field="*{date_of_birth}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            <input type="password" class="form-control" id="Password" placeholder="Password" th:field="*{password}"/>
+        </div>
+
+        <div th:if="${!group_list.isEmpty()}" >
+            <h4>Join to group(s): </h4>
+
+            <div class="from-check-group" th:each="group : ${group_list}">
+                <input type="checkbox" class="form-check-input" th:value="${group.getId_group()}"
+                       th:field="*{user_group}"/>
+                <label class="form-check-label" th:text="${group.getGroupname()}"></label>
+            </div>
+        </div>
+        <div class="create-btn">
+            <button type="submit" class="btn btn-secondary btn-sm">create</button>
+        </div>
+    </form>
+</div>
+
+<div th:include="footer">/</div>

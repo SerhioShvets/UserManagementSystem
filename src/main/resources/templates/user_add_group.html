@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container">
+    <h2 class="add_group">Add new group for user:
+        <kbd><span th:text="${user.getUsername()}"></span></kbd>
+    </h2>
+        <form class="group" action="#" th:action="@{'/user/'+ ${user.getUsername()+'/groups/add'}}" th:object="${user}" method="post">
+            <input type="hidden" th:field="${user.user_id}">
+            <input type="hidden" th:field="${user.username}">
+            <input type="hidden" th:field="${user.first_name}">
+            <input type="hidden" th:field="${user.last_name}">
+            <input type="hidden" th:field="${user.date_of_birth}">
+            <div class="form-check" th:each="group : ${group_list}">
+                <input class="form-check-input" type="checkbox" th:value="${group.getId_group()}"
+                       th:field="*{user_group}"/>
+                <label class="form-check-label" th:text="${group.getGroupname()}"></label>
+            </div>
+            <button class="btn btn-secondary btn-sm" type="submit">submit</button>
+        </form>
+</div>
+
+<div th:include="footer"></div>

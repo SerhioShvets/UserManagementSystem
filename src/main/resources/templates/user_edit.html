@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:include="header"></div>
+
+<div class="container-fluid">
+    <div class="container-fluid edit">
+
+        <h2>Edit user information:</h2>
+
+        <form class="form-inline edit" action="#" th:action="@{'/user/' + ${user.username} + '/edit'}"
+              th:object="${user}"
+              method="post">
+            <div class="field">
+                <input type="hidden" th:field="${user.user_id}"/>
+            </div>
+            <label for="Username">Username:</label>
+            <div class="field">
+                <input class="form-control" id="Username" type="text" required th:field="${user.username}"/>
+            </div>
+            <label for="First_name">First name</label>
+            <div class="field">
+                <input class="form-control" id="First_name" type="text" th:field="${user.first_name}"/>
+            </div>
+            <label for="Last_name">Last name:</label>
+            <div class="field">
+                <input class="form-control" id="Last_name" type="text" th:field="${user.last_name}"/>
+            </div>
+            <label for="Date-of-birth">Date of Birth:</label>
+            <div class="field">
+                <input class="form-control" id="Date-of-birth" type="date" th:field="${user.date_of_birth}"/>
+            </div>
+            <label class="pass" for="Password">Password:</label>
+            <div class="pass-input">
+                <input class="form-control" id="Password" type="password" th:field="${user.password}"/>
+            </div>
+
+            <div class="edit-btn">
+                <button type="submit" class="btn btn-secondary">edit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div th:include="footer"></div>

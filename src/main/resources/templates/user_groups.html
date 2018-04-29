@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container user_groups" th:if="${!user_groups.isEmpty()}">
+    <h2>List of groups for user:
+        <kbd><span th:text="${username}"></span></kbd>
+        <a class="add_group" th:href="@{'/user/'+ ${username}+ '/groups/add'}">+</a>
+    </h2>
+    <table class="table user_groups">
+        <tbody th:each="group:${user_groups}">
+        <tr>
+            <th th:text="${group.getGroupname()}"></th>
+            <th class="delete"><a class="link_delete" th:href="@{'/user/'+${username}+'/groups/'+${group.getGroupname()}+'/delete'}">delete</a></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="if_user_group_list_is_empty" th:if="${user_groups.isEmpty()}">
+    <h2>List of groups for user:
+        <kbd><span th:text="${username}"></span></kbd> is empty. Click
+        <a class="add_if" th:href="@{'/user/'+ ${username}+ '/groups/add'}">+</a> for view list of groups and join them!
+    </h2>
+</div>
+
+<div th:include="footer"></div>

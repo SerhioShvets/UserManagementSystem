@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container-fluid">
+    <div class="container-fluid edit_group">
+        <h2>Edit group information:</h2>
+        <form class="form-inline edit_group" action="#" th:action="@{'/group/' + ${group.groupname} + '/edit'}"
+              th:object="${group}" method="post">
+            <input type="hidden" th:field="${group.id_group}"/>
+            <label class="group" for="Groupname">Group name:</label>
+            <div class="field">
+                <input type="text" id="Groupname" th:field="${group.groupname}"/>
+            </div>
+
+            <div class="btn_submit">
+                <button type="submit" class="btn btn-secondary">edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div th:include="footer"></div>

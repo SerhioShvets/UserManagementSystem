@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container say-hallo">
+
+    <h1 class="welcome">Welcome to user management systems!</h1>
+
+    <button type="button" class="btn btn-primary hallo" data-toggle="modal" data-target="#myModal">say hallo</button>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hi!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    How are you?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Good</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="footer"></div>

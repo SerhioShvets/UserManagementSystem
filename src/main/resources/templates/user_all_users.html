@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:include="header"></div>
+
+<div class="container list-of-users" th:if="${!user_list.isEmpty()}">
+    <h2>List of users  <a class="add" th:href="@{/user/create}">+</a></h2>
+    <table class="table user_list">
+        <thead>
+        <tr>
+            <th style="width: 5%">Id</th>
+            <th style="width: 10%">Username</th>
+            <th style="width: 15%">Firs name</th>
+            <th style="width: 15%">Last name</th>
+            <th style="width: 15%">Date of Birth</th>
+            <th style="width: 5%"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${user_list}">
+            <td th:text="${user.getUser_id()}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getFirst_name()}"></td>
+            <td th:text="${user.getLast_name()}"></td>
+            <td th:text="${user.getDate_of_birth()}"></td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown">
+                        details
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item edit" th:href="@{'/user/'+ ${user.username} + '/edit'}">edit</a>
+                        <a class="dropdown-item groups" th:href="@{'/user/'+ ${user.username} + '/groups'}">groups</a>
+                        <a class="dropdown-item delete" th:href="@{'/user/'+ ${user.username} + '/delete'}">delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="if_list_user_or_group_is_empty" th:if="${user_list.isEmpty()}"><h2>List of users is empty. Click
+    <a class="add_if" th:href="@{/user/create}">+</a> for creating new user!</h2></div>
+
+<div th:include="footer"></div>
