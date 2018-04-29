@@ -31,8 +31,8 @@
       
  ## Set of screenshots of a functioning system 
 ![listusersempty](https://user-images.githubusercontent.com/26436190/39406159-1ed092c8-4bb2-11e8-9410-f1bfee6c91fe.png)
-![listofusers](https://user-images.githubusercontent.com/26436190/39406158-1ea5d830-4bb2-11e8-8df5-4acd7d701ffd.png)
 ![usercreate](https://user-images.githubusercontent.com/26436190/39406160-1ef238ec-4bb2-11e8-82af-9d8bc85a62fa.png)
+![listofusers](https://user-images.githubusercontent.com/26436190/39406158-1ea5d830-4bb2-11e8-8df5-4acd7d701ffd.png)
 ![edituser](https://user-images.githubusercontent.com/26436190/39406164-1fa44622-4bb2-11e8-96bd-2bc44d522060.png)
 ![usergroplist](https://user-images.githubusercontent.com/26436190/39406161-1f22ba94-4bb2-11e8-88ab-94e3265a7307.png)
 ![addingtousergrouplist](https://user-images.githubusercontent.com/26436190/39406162-1f64b82c-4bb2-11e8-9df6-f73f90d023c5.png)
